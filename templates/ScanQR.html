@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan QR</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <!-- =====BOX ICONS===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            padding: 25px;
+            position: relative;
+            text-align: center;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo">Re-Medicine</a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="{{ url_for('login') }}" class="nav__link">Login / Register</a></li>
+                    <li class="nav__item"><a href="{{ url_for('generateQR') }}" class="nav__link">Generate QRCode</a></li>
+                    <li class="nav__item"><a href="{{ url_for('scanQR') }}" class="nav__link">ScanQR</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h3>Scan QR Code</h3><br>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+
+            <input type="file" name="img">
+            <button type="submit" class="scanQr">Scan</button><br><br>
+        </form>
+        </div>
+</body>
+</html>

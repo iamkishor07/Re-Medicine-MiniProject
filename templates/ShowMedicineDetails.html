@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show Details</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <!-- =====BOX ICONS===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .container{
+            padding: 150px;   
+            position: relative;
+            text-align: center;
+            justify-content: space-between;
+        }
+        .container h3{
+            color: darkblue;
+        }
+        .container p{
+            color: darkblue;
+            font-size: medium;
+            font-weight: bold;
+            
+        }
+    </style>
+</head>
+<body>
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo">Re-Medicine</a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <!-- <li class="nav__item"><a href="{{ url_for('login') }}" class="nav__link">Login / Register</a></li> -->
+                    <li class="nav__item"><a href="{{ url_for('generateQR') }}" class="nav__link">Generate QRCode</a></li>
+                    <li class="nav__item"><a href="{{ url_for('scanQR') }}" class="nav__link">ScanQR</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                    <li class="nav__item"><a href="{{url_for('logout')}}" class="nav__link">Logout</a></li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h3>Tablet Details With the Qr Code </h3><br>
+        <label for="\"> User Name:  <p>{{data[0]}}</p> </label>
+        <label for=""> QR Code unique_id: </label><p>{{data[1]}}</p>
+        <label for=""> Name of the Tablet: </label><p>{{data[2]}}</p>
+        <label for=""> Date of Expiry: </label><p>{{data[3]}}</p>
+        <label for=""> Date of Purchase: </label><p>{{data[4]}}</p><br>
+    </div>
+    
+</body>
+</html>
